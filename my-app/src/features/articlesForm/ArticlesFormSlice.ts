@@ -1,11 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-
-
 interface IArticleForm {
     title: string,
     description: string,
-    id: number
+    id: string
 }
 
 type InitialStateType = {
@@ -21,6 +19,11 @@ const ArticlesFormSlice = createSlice({
     initialState,
     reducers: {
         setPost(state, action) {
+            state.articles.push(action.payload)
         }
     }
 })
+
+const {reducer, actions} = ArticlesFormSlice
+export default reducer
+export const {setPost} = actions
