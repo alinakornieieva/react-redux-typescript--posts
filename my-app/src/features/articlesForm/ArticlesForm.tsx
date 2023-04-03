@@ -3,9 +3,12 @@ import * as Yup from 'yup'
 import './ArticlesForm.css'
 import { setPost } from './ArticlesFormSlice'
 import { nanoid } from '@reduxjs/toolkit'
+import { useAppDispatch } from '../../app/hooks'
+
 
 
 const ArticlesForm = () => {
+    const dispatch = useAppDispatch()
     return <>
     <Formik 
     initialValues={{
@@ -18,15 +21,17 @@ const ArticlesForm = () => {
     })}
     onSubmit={(values, {resetForm}) => {
         resetForm()
-        setPost({...values, id: nanoid()})
+        dispatch(setPost({...values, id: nanoid()}))
     }}
     >
         <Form>
             <div className='input-div'>
                 <Field name='title' type="text" placeholder="New post"/>
+                <ErrorMessage name='title' className='error-form' component='div'/>
             </div>
             <div className='input-div'>
                 <Field name='description' type="text" placeholder="This is a description"/>
+                <ErrorMessage name='description' className='error-form' component='div'/>
             </div>
             <button className='add-btn' type='submit'>Add article</button>
         </Form>

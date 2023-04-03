@@ -5,6 +5,7 @@
     background-color: rgb(255, 255, 255);
     padding: 20px;
     border-radius: 10px;
+    margin-bottom: 20px;
 }
 .Posts-title{
     font-size: 22px;
@@ -26,6 +27,10 @@
     font-size: 16px;
     margin-left: 30px;
 }
+.Posts-text{
+    font-size: 18px;
+    opacity: 0.75;
+}
 @media (max-width: 600px) {
     .Posts-div{
         display: block;
@@ -33,8 +38,4 @@
     .delete-btn{
         margin: 8px 0 0;
     }
-}
-.Posts-text{
-    font-size: 16px;
-    opacity: 0.75;
 }

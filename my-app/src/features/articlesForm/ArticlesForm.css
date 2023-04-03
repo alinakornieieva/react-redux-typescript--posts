@@ -27,6 +27,10 @@ input:focus{
 .input-div{
     margin-bottom: 10px;
 }
+.error-form{
+    color: rgb(217, 83, 79);
+    margin-top: 3px;
+}
 @media (max-width: 500px) {
     input, .add-btn{
         width: 200px;

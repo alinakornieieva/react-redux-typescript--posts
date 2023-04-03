@@ -1,14 +1,18 @@
+import { useAppDispatch, useAppSelector } from '../../app/hooks'
+import { deletePost } from '../articlesForm/ArticlesFormSlice'
 import './Posts.css'
 
 const Posts = () => {
+    const {articles} = useAppSelector(state => state.form)
+    const dispatch = useAppDispatch()
     return <div className='Posts'>
-        <div className='Posts-item'>
-            <div className='Posts-title'>Post 1</div>
+        {articles.map(item => <div key={item.id} className='Posts-item'>
+            <div className='Posts-title'>{item.title}</div>
             <div className='Posts-div'>
-                <div className='Posts-text'>It is purpose-built to solve the use case of data fetching and caching, supplying a compact, but powerful toolset to define an API interface layer</div>
-                <button className='delete-btn'>Delete</button>
+                <div className='Posts-text'>{item.description}</div>
+                <button onClick={() => dispatch(deletePost(item.id))} className='delete-btn'>Delete</button>
             </div>
-        </div>
+        </div>)}
     </div>
 }
 
