@@ -2,13 +2,13 @@ import './ArticlesForm.css'
 
 const ArticlesForm = () => {
     return <form>
-        <div>
+        <div className='input-div'>
             <input type="text" placeholder="New post"/>
         </div>
-        <div>
+        <div className='input-div'>
             <input type="text" placeholder="This is a description"/>
         </div>
-        <button>Add article</button>
+        <button className='add-btn'>Add article</button>
     </form>
 }
 
